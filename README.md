@@ -56,6 +56,8 @@ pip install -r requirements.txt
 python manage.py import_data
 ```
 
+Note: you need to run migrate command first
+
 </div>
 
 ---
@@ -85,7 +87,9 @@ to have the react app on dev mode, change directiory to frontend and run:
 npm run dev
 
 ```
+
 to have the react app on build mode, change directiory to frontend and run
+
 ```
 npm run build
 ```
