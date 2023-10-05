@@ -1,0 +1,584 @@
+:root {
+  --black: #000;
+  --white: #fff;;
+  --cadetBlue: #afb7c1;
+  --lightSilver: #d6d6de;
+  --sasquatchSocks: #ff4486;
+  --mangoTango: #ff8c3a;
+  --ultraRed: #ff6b81;
+  --radicalRed: #ff2e63;
+  --lightCrimson: #f86d92;
+  --independence:#54576F ;
+}
+
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: Helvetica, Arial;
+  margin: 0;
+  background-color: var(--white);
+}
+
+.app-main {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 430px;
+  height: 100px;
+  margin: -4px auto;
+}
+
+#fancy-bg {
+  position: fixed;
+  top: -30px;
+  right: -30px;
+  bottom: -30px;
+  left: -30px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJmSSXMzhS4c82fpn2EjfWSNQ04QZ91lTX7Ix4aGQ_v8q4nQLnsnHbhkzIGCsgR_r6u3k&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+  z-index: 1;
+}
+
+
+#fancy-bg {
+  position: fixed;
+  top: -30px;
+  right: -30px;
+  bottom: -30px;
+  left: -30px;
+  background-image: url("https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  filter: blur(40px);
+  -webkit-filter: blur(40px);
+  z-index: 1;
+}
+
+/* CSS */
+
+
+@keyframes twistingAndColorShift {
+0% {
+  transform: rotate(0deg) skewX(0deg);
+  background-color: #FF5733;
+}
+25% {
+  transform: rotate(180deg) skewX(45deg);
+  background-color: #33FF57;
+}
+50% {
+  transform: rotate(360deg) skewX(0deg);
+  background-color: #5733FF;
+}
+75% {
+  transform: rotate(540deg) skewX(-45deg);
+  background-color: #FF5733;
+}
+100% {
+  transform: rotate(720deg) skewX(0deg);
+  background-color: #FF5733;
+}
+}
+
+
+
+@keyframes expandingCirclesAnimation {
+0% {
+  transform: scale(0.5);
+  box-shadow: 0 0 10px rgba(255, 87, 51, 0.5), 0 0 20px rgba(255, 87, 51, 0.2);
+}
+25% {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 87, 51, 0.7), 0 0 40px rgba(255, 87, 51, 0.3);
+}
+50% {
+  transform: scale(0.5);
+  box-shadow: 0 0 10px rgba(255, 87, 51, 0.5), 0 0 20px rgba(255, 87, 51, 0.2);
+}
+75% {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 87, 51, 0.7), 0 0 40px rgba(255, 87, 51, 0.3);
+}
+100% {
+  transform: scale(0.5);
+  box-shadow: 0 0 10px rgba(255, 87, 51, 0.5), 0 0 20px rgba(255, 87, 51, 0.2);
+}
+}
+
+
+@keyframes FadeInOut {
+0%, 100% {
+  opacity: 0;
+  transform: scale(0.8) rotateX(0deg) rotateY(0deg);
+  background-color: #FF5733;
+}
+25% {
+  opacity: 1;
+  transform: scale(1.2) rotateX(90deg) rotateY(90deg);
+  background-color: #33FF57;
+}
+50% {
+  opacity: 0;
+  transform: scale(0.8) rotateX(180deg) rotateY(180deg);
+  background-color: #5733FF;
+}
+75% {
+  opacity: 1;
+  transform: scale(1.2) rotateX(270deg) rotateY(270deg);
+  background-color: #FF5733;
+}
+}
+
+#fancy-bg.FadeInOut {
+animation: FadeInOut 8s infinite;
+opacity: 1; /* Make sure the initial opacity is set to 1 for the animation to start */
+}
+
+
+#fancy-bg.twistingAndColorShift {
+animation: twistingAndColorShift  8s infinite;
+opacity: 1;
+}
+
+#fancy-bg.expandingCirclesAnimation {
+animation: expandingCirclesAnimation 8s infinite;
+opacity: 1;
+}
+
+.bg-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
+  opacity: 0.51;
+  z-index: 2;
+}
+
+.player {
+  position: relative;
+  height: 100%;
+  z-index: 3;
+}
+
+.player-track {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  left: 15px;
+  padding: 13px 22px 10px 184px;
+  background-color: var(--white);
+  border-radius: 15px 15px 0 0;
+  transition: 0.3s ease top;
+  z-index: 1;
+  height: 75px;
+}
+
+.player-track.active {
+  top: -92px;
+}
+
+.track-name {
+  color: var(--independence);
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.track-time {
+  height: 12px;
+  margin-bottom: 3px;
+  overflow: hidden;
+}
+
+.current-time {
+  float: left;
+}
+
+.track-length {
+  float: right;
+}
+
+.current-time,
+.track-length {
+  color: black;
+  font-size: 11px;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+}
+
+.track-time.active .current-time,
+.track-time.active .track-length {
+  color: var(--lightCrimson);
+  background-color: transparent;
+}
+
+.song-container,
+.seek-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 4px;
+}
+
+.song-container {
+  background-color: #ffe8ee;
+  cursor: pointer;
+}
+
+.seeked-time {
+  position: absolute;
+  top: -29px;
+  color: #fff;
+  font-size: 12px;
+  white-space: pre;
+  padding: 5px 6px;
+  border-radius: 4px;
+  display: none;
+}
+
+.seek-hover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.seeked-time,
+.seek-hover {
+  background-color: #3b3d50;
+}
+
+.seek-bar {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: #fd6d94;
+  transition: 0.2s ease width;
+  z-index: 1;
+}
+
+.player-box {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 30px 80px #656565;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.track {
+  position: absolute;
+  top: -40px;
+  width: 115px;
+  height: 115px;
+  margin-left: 40px;
+  transform: rotateZ(0);
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 10px var(--white);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.track.active {
+  top: -60px;
+  box-shadow: 0 0 0 4px var(--white), 0 30px 50px -15px var(--cadetBlue);
+}
+
+.track:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: -10px auto 0 auto;
+  background-color: var(--lightSilver);
+  ;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--white);
+  ;
+  z-index: 2;
+}
+
+.track img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.track img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.track.active img.active {
+  z-index: 1;
+  animation: rotateAlbumArt 3s linear 0s infinite forwards;
+}
+
+@keyframes rotateAlbumArt {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.buffer-box {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 13px;
+  color: var(--black);
+  font-size: 13px;
+  font-family: Helvetica;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1;
+  padding: 6px;
+  margin: -12px auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.19);
+  opacity: 0;
+  z-index: 2;
+}
+
+.track img,
+.buffer-box {
+  transition: 0.1s linear all;
+}
+
+.track.buffering img {
+  opacity: 0.25;
+}
+
+.track.buffering img.active {
+  opacity: 0.8;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.track.buffering .buffer-box {
+  opacity: 1;
+}
+
+.player-controls {
+  width: 250px;
+  height: 100%;
+  margin: 0 5px 0 141px;
+  float: right;
+  overflow: hidden;
+}
+
+.control {
+  width: 33.333%;
+  float: left;
+  padding: 12px 0;
+}
+
+.button {
+  width: 26px;
+  height: 26px;
+  padding: 25px;
+  background-color: var(--white);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button i {
+  display: block;
+  color: var(--lightSilver);
+  ;
+  font-size: 26px;
+  text-align: center;
+  line-height: 1;
+}
+
+.button,
+.button i {
+  transition: 0.2s ease all;
+}
+
+.button:hover {
+  background-color: var(--lightSilver);
+}
+
+.button:hover i {
+  color: var(--white);
+}
+
+
+
+#music-list-container {
+  height: 300px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+.music-item {
+  padding: 10px;
+  border-bottom: 1px solid var(--lightSilver);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.music-item:hover {
+  cursor: pointer;
+  background: linear-gradient(to left, var(--sasquatchSocks), var(--mangoTango));
+  color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 68, 134, 0.5);
+  transform: scale(1.02);
+  transition: background 0.3s ease, transform 0.3s ease;
+
+}
+
+.remove-button {
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--sasquatchSocks);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: var(--radicalRed);
+  transform: scale(1.5);
+  box-shadow: 0 0 10px rgba(255, 68, 134, 0.5);
+  width: 25px;
+  height: 25px;
+  font-size: 15px;
+}
+
+
+.highlighted {
+  background: linear-gradient(to right, var(--sasquatchSocks), var(--mangoTango));
+  color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 68, 134, 0.5);
+  transform: scale(1.02);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: var(--ultraRed);
+  border-radius: 8px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--radicalRed);
+}
+
+
+.fancy-form {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.fancy-form label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.fancy-form .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.fancy-form .form-group {
+  flex: 1;
+  margin-right: 10px;
+  position: relative;
+}
+
+
+.fancy-form input {
+  width: 100%;
+  padding: 4px 0;
+  border: none;
+  border-bottom: 2px solid var(--lightCrimson);
+  outline: none;
+  background-color: transparent;
+  transition: border-bottom 0.3s ease;
+  color: var(--black);
+}
+
+.fancy-form input:focus {
+  border-bottom: 2px solid var(--black);
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+
+.fancy-btn {
+  background-color: var(--ultraRed);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: "10px";
+  transition: "background-color 0.3s";
+}
+
+
+.fancy-btn:hover {
+  background-color: var(--radicalRed);
+}
