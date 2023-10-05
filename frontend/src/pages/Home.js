@@ -189,7 +189,7 @@ const Home = () => {
   };
 
 const getRandomAnimationClass = () => {
-  const animations = ['expandingCirclesAnimation', 'twistingAndColorShift','FadeInOut']; // Add more animations as needed
+  const animations = ['expandingCirclesAnimation', 'twistingAndColorShift','FadeInOut'];
   const randomIndex = Math.floor(Math.random() * animations.length);
   return animations[randomIndex];
 };
