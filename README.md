@@ -30,7 +30,7 @@
 
 <div id="intro"  text-align="justify"  markdown="1">
 
-a music plyaer using React, DRF and Redux ToolKit, you can play songs, add or remove songs. you can add more functionalities, animations or react components to improve it.
+a music player using React, DRF and Redux ToolKit, you can play songs, add or remove songs. you can add more functionalities, animations or react components to improve it.
 
 </div>
 
