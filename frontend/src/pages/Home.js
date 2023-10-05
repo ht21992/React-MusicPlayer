@@ -24,6 +24,7 @@ const Home = () => {
   const [coverImage, setCoverImage] = useState("");
   const [seekT, setSeekT] = useState("");
   const [seekLoc, setSeekLoc] = useState("");
+  const [animation, setAnimation] = useState('');
   const [formFields, setFormFields] = useState({
     title: "",
     genre: "",
@@ -187,18 +188,14 @@ const Home = () => {
     playAudio(music);
   };
 
-
-// Function to generate a random class name
 const getRandomAnimationClass = () => {
   const animations = ['expandingCirclesAnimation', 'twistingAndColorShift','FadeInOut']; // Add more animations as needed
   const randomIndex = Math.floor(Math.random() * animations.length);
   return animations[randomIndex];
 };
 
-const [animation, setAnimation] = useState('');
-
 useEffect(() => {
-  
+
   setAnimation(getRandomAnimationClass())
 
 },[trackName])

@@ -63,9 +63,6 @@ body {
   z-index: 1;
 }
 
-/* CSS */
-
-
 @keyframes twistingAndColorShift {
 0% {
   transform: rotate(0deg) skewX(0deg);
@@ -140,7 +137,7 @@ body {
 
 #fancy-bg.FadeInOut {
 animation: FadeInOut 8s infinite;
-opacity: 1; /* Make sure the initial opacity is set to 1 for the animation to start */
+opacity: 1;
 }
 
 
