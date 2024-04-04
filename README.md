@@ -48,20 +48,6 @@ pip install -r requirements.txt
 
 ---
 
-## Populate Database With Sample Songs
-
-<div  id="populate"  markdown="1">
-
-```
-python manage.py import_data
-```
-
-Note: you need to run migrate command first
-
-</div>
-
----
-
 ## How To Run
 
 <div  id="run"  markdown="1">
@@ -77,6 +63,20 @@ python manage.py runserver
 then open up http://localhost:8000/
 
 </div>
+
+## Populate Database With Sample Songs
+
+<div  id="populate"  markdown="1">
+
+```
+python manage.py import_data
+```
+
+Note: you need to run migrate command first
+
+</div>
+
+---
 
 ## React Commands
 
